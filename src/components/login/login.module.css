@@ -1,76 +1,65 @@
 .div_wrapper {
-  width: 1000px;
-  height: 700px;
+  width: 70%;
+  height: 30em;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 10%;
 }
 
 .yam {
-  font-size: 60px;
+  font-size: 3em;
   font-family: cooperplate;
   text-align: center;
-  margin-top: 150px;
+  align-items: center;
 }
 
 .img1 {
   margin-left: auto;
   margin-right: auto;
-  width: 150px;
-  height: 150px;
+  width: 5em;
+  height: 5em;
   display: block;
+  align-items: center;
 }
 
 .p {
-  font-size: 25px;
+  font-size: 1.5rem;
   text-align: center;
-  margin-top: -20px;
+  margin-top: -1rem;
+  align-items: center;
 }
 
-.btn_left {
-  float: left;
+.btn_wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  height: 5em;
+  justify-content: center;
+  margin: 11% auto;
+  padding: 0.5em;
+}
+
+.btn {
+  display: block;
+  margin: 0.3em;
+  padding: 0.5em;
   background-color: #ffb067;
-  width: 200px;
-  height: 60px;
-  margin-top: 190px;
-  margin-left: 190px;
-  font-size: 20px;
+  width: 10em;
+  height: 3.3em;
+  font-size: 1.1em;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0.7em;
   cursor: pointer;
 }
-
-.btn_right {
-  float: right;
-  background-color: #ffb067;
-  width: 200px;
-  height: 60px;
-  margin-top: 190px;
-  margin-right: 190px;
-  font-size: 20px;
-  text-align: center;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.btn_right:active {
+.btn:active {
   background-color: grey;
   color: white;
   box-shadow: 2px 2px 5px #2b1103;
   cursor: pointer;
 }
-.btn_left:active {
-  background-color: grey;
-  color: white;
-  box-shadow: 2px 2px 5px #2b1103;
-  cursor: pointer;
-}
-.btn_right:hover {
+.btn:hover {
   background-color: grey;
   color: white;
   cursor: pointer;
 }
-.btn_left:hover {
-  background-color: grey;
-  color: white;
-  cursor: pointer;
-}
+

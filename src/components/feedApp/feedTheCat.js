@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Calendar from "../calendar/Calendar";
 import AlertModal from "../alertModal/alertModal";
 import classes from "./feedTheCat.module.css";
 import cat from "../../assets/cat.png";
@@ -10,11 +9,8 @@ import food1 from "../../assets/food1.png";
 import bground from "../../assets/bground.png";
 import bag from "../../assets/bag.png";
 import cat_bag from "../../assets/cat_bag.png";
-import spy_cat from "../../assets/spy_cat.png";
 import shelf2 from "../../assets/shelf2.png";
 import cat_above from "../../assets/cat_above.png";
-import cat_lie from "../../assets/cat_lie.png";
-import cat_back from "../../assets/cat_back.png";
 import extra_cats from "../../assets/extra_cats.png";
 import done from "../../assets/done.png";
 import extra from "../../assets/extra.png";
@@ -49,7 +45,6 @@ function FeedTheCat() {
         };
     }, 0);
 
-
     // Alert 
     const [alertFood, setAlertFood]=useState(false);
     // count for first 8 services
@@ -73,11 +68,15 @@ function FeedTheCat() {
             newFood[index].theCatAte = false;
         } else if (foods[index].theCatAte === false) {
             newFood[index].theCatAte = true;
+            setAlertFood(false);
         }
         // alerta OMG for extra food serving 9 and 10
-        if (totalFoodCountWithoutAlerts >= 8) {
+        if (totalFoodCountWithoutAlerts >= 8 && foods[index].theCatAte === true) {
             setAlertFood(true);
-        };
+        } 
+        else if (totalFoodCountWithoutAlerts >= 8 && foods[index].theCatAte === false ){
+            setAlertFood(false);
+        }
 
         setFoods(newFood);
     };
@@ -91,60 +90,64 @@ function FeedTheCat() {
         };
 
     // images array
-    const imageGallery = [{key:0, foodInTheBag: classes.food1_inTheBag, src: milk, foodPosition: classes.food1_position, done: classes.done1},{key:1, foodInTheBag: classes.food2_inTheBag, src: meat, foodPosition: classes.food2_position, done: classes.done2}, 
-    {key:2, foodInTheBag: classes.food3_inTheBag, src: food1, foodPosition: classes.food3_position, done: classes.done3}, {key:3, foodInTheBag: classes.food4_inTheBag, src: food1, foodPosition: classes.food4_position, done: classes.done4},
-    {key:4, foodInTheBag: classes.food5_inTheBag, src: food1, foodPosition: classes.food5_position, done: classes.done5}, {key:5, foodInTheBag: classes.food6_inTheBag, src: food1, foodPosition: classes.food6_position, done: classes.done6},
-    {key:6, foodInTheBag: classes.food7_inTheBag, src: food1, foodPosition: classes.food7_position, done: classes.done7}, {key:7, foodInTheBag: classes.food8_inTheBag, src: food1, foodPosition: classes.food8_position, done: classes.done8},
-    {key:8, foodInTheBag: classes.food9_inTheBag, src: food1, foodPosition: classes.food9_position, done: classes.done9}, {key:9, foodInTheBag: classes.food10_inTheBag, src: food1, foodPosition: classes.food10_position, done: classes.done10}];
+    const imageGallery = [{id:1, foodInTheBag: classes.food1_inTheBag, src: milk, foodPosition: classes.food1_position, foodNr: classes.foodNr1},{id:2, foodInTheBag: classes.food2_inTheBag, src: meat, foodPosition: classes.food2_position, foodNr: classes.foodNr2}, 
+    {id:3, foodInTheBag: classes.food3_inTheBag, src: food1, foodPosition: classes.food3_position,foodNr: classes.foodNr3}, {id:4, foodInTheBag: classes.food4_inTheBag, src: food1, foodPosition: classes.food4_position,foodNr: classes.foodNr4},
+    {id:5, foodInTheBag: classes.food5_inTheBag, src: food1, foodPosition: classes.food5_position, foodNr: classes.foodNr5}, {id:6, foodInTheBag: classes.food6_inTheBag, src: food1, foodPosition: classes.food6_position,foodNr: classes.foodNr6},
+    {id:7, foodInTheBag: classes.food7_inTheBag, src: food1, foodPosition: classes.food7_position, foodNr: classes.foodNr7}, {id:8, foodInTheBag: classes.food8_inTheBag, src: food1, foodPosition: classes.food8_position,foodNr: classes.foodNr8},
+    {id:9, foodInTheBag: classes.food9_inTheBag, src: food1, foodPosition: classes.food9_position,  foodNr: classes.foodNr9}, {id:10, foodInTheBag: classes.food10_inTheBag, src: food1, foodPosition: classes.food10_position,foodNr: classes.foodNr10}];
 
     return <div>
-        <button className={classes.btn_home} onClick={home}>⏪  Home </button>
         <img className={classes.bground} src={bground} width="150" height="113" alt="bground"></img>
+        <div className={classes.container}>
         <div>
         {alertFood && <AlertModal closeAlert={closeAlert} />}
         </div>
-        <section className={classes.section_bag}>
+        <div className={classes.header}>
+        <button className={`${classes.btn_home}`} onClick={home}>⏪  Home </button>
             <h1 className={classes.hello}>Hello {params.name}...</h1>
-            <p className={classes.p1}>Would you feed the cat?</p>
-            <p className={classes.p2}>Here's how much I ate today: {totalFoodCount} / 8</p>
+            <p className={classes.text}>Would you feed the cat?</p>
+            <p className={classes.text}>Here's how much I ate today: {totalFoodCount} / 8</p>
+        </div>
 
-            <div className={classes.section_bag}>
-                <img className={classes.cat} src={cat} width="150" height="113" alt="cat"></img>
-                <img className={classes.bag} src={bag} width="150" height="113" alt="bag"></img>
-                <img className={classes.cat_bag} src={cat_bag} width="150" height="113" alt="cat_bag"></img>
-                <div>
-                   {
-                    imageGallery.map((element, index)=><img className={`${classes.inTheBag} ${element.foodInTheBag} ${foods[index].theCatAte ? "" : classes.hidden}`} 
-                    src={element.src} width="150" height="113" alt="image"></img>)
-                   };
-                </div>
+        <div className={classes.wrap}>
+            <div className={classes.section_cat}>
+            <img className={classes.cat} src={cat} width="150" height="113" alt="cat"></img>
             </div>
-        </section>
-        <section className={classes.section_shelve}>
-            <div className={classes.food_container}>
-                <img className={classes.shelf} src={shelf2} width="150" height="113" alt="shelf"></img>
-                <img className={classes.cat_above} src={cat_above} width="150" height="113" alt="cat_above"></img>
-                <img className={classes.cat_back} src={cat_back} width="150" height="113" alt="cat_above"></img>
-                <img className={classes.cat_lie} src={cat_lie} width="150" height="113" alt="cat_above"></img>
-                <div>
+            <div className={classes.section_left}>
+                  <div className={classes.bag_container}>
+                      <img className={classes.bag} src={bag} width="150" height="113" alt="bag"></img>
+                      <img className={classes.cat_bag} src={cat_bag} width="150" height="113" alt="cat_bag"></img>
+                   <div> {
+                    imageGallery.map((element, index)=><img className={`${classes.inTheBag} ${element.foodInTheBag} ${foods[index].theCatAte ? "" : classes.hidden}`} 
+                    src={element.src} alt="image"></img>)
+                   }
+                   </div>
+                </div>
+            <button className={classes.btn_reset} onClick={resetHandler}>Reset</button>
+                </div>
+
+        <div className={classes.section_right}>
+            <div className={classes.shelf_container}>
+            <img className={classes.cat_above} src={cat_above} alt="cat_above"></img>
+                <img className={classes.shelf} src={shelf2} alt="shelf"></img>
+                <p className= {classes.extra_text}>Extra food!</p>
+                <img className={classes.extra} src={extra} alt="extra"></img>
+                <img className={classes.extra_cats} width="150" height="113" src={extra_cats} alt="extra_cats"></img>
                     {
                      imageGallery.map((element, index)=> 
-                    <button className={classes.btn} onClick={() => onClickFood(element.key)}>
-                        <img className={`${classes.box_shadow} ${element.foodPosition}`} src={element.src} width="150" height="113" alt="image"></img>
-                        <img className={`${classes.done} ${element.done} ${foods[index].theCatAte ? "" : classes.hidden} `} src={done} width="150" height="113" alt="done"></img>
+                    <button className={classes.btn} onClick={() => onClickFood(index)}>
+                        <img className={`${classes.box} ${element.foodPosition}`} src={element.src} width="150" height="113" alt="image"></img>
+                        <img className={`${classes.done} ${element.foodPosition} ${foods[index].theCatAte ? "" : classes.hidden} `} src={done} width="150" height="113" alt="done"></img>
                     </button>)
                     }
-                </div>
-                <p className={classes.p_warning}>Extra food!</p>
-                <img className={classes.extra_cats} src={extra_cats} width="150" height="113" alt="extra_cats"></img>
-                <img className={classes.extra} src={extra} width="150" height="113" alt="extra"></img>
+                <div> {
+                    imageGallery.map((element)=>
+                    <p className={`${classes.foodNumber} ${element.foodNr}`}>{element.id}</p>
+                 )} </div>
+                 </div>
             </div>
-        </section >
-        <section className={classes.footer}>
-            <img className={classes.spy_cat} src={spy_cat} width="150" height="113" alt="spy_cat"></img>
-            <button className={classes.btn_reset} onClick={resetHandler}>Reset</button>
-            <Calendar />
-        </section>
-    </div >;
+                </div>
+        </div >;
+        </div>;
 };
 export default FeedTheCat;
