@@ -1,63 +1,79 @@
-
 .container {
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
   max-width: 960px;
+  position: relative;;
 }
 
 .header {
   /* border: 2px solid; */
   z-index: 1;
+  z-index: 1;
+    margin: 2em;
+    text-align: center;
 }
 
 .bground {
-  width: 100%;
-  height: auto;
+  max-height: 750px;;
   opacity: 8%;
   z-index: -1;
   position: absolute;
 }
 
 .hello {
-  font-size: 50px;
+  color:  #2b1103;
+  font-size: 40px;
   margin-bottom: 0;
   margin-left: 1em;
 }
 
 .text {
+  color:  #2b1103;
   font-size: 20px;
   margin-bottom: 0;
   margin-top: 0;
   margin-left: 2.5em;
 }
 
-.btn_home {
-  width: 100px;
-  height: 30px;
+.btn_header {
+  width: 150px;
+  height: 45px;
   margin-left: 10px;
   margin-top: 10px;
   font-weight: bold;
   background-color: #ffb067;
-  border-radius: 5px;
+  border-radius: 25px;
   opacity: 80%;
+  border: 1px solid #2b1103;
 }
 
+.btn_header:active {
+  background-color: #2b1103;
+  box-shadow: 2px 2px 5px #2b1103;
+  cursor: pointer;
+}
+
+.btn_header:hover {
+  background-color:#2b1103;
+  cursor: pointer;
+  color: white;
+} 
+
 .wrap {
-  /* background-color: #ff7077; */
   display: flex;
 }
 
 .section_cat{
-  background-color: #aceef3;
+  /* background-color: #aceef3; */
   position: relative;
   width: 20%;
 }
 
 .cat {
-  background-color: #aceef3;
+  /* background-color: #aceef3; */
   position: absolute;
   left:10%;
-  top:15%;
+  top:17%;
   width: 10em;
   height: 16.25em;
   opacity: 80%;
@@ -65,8 +81,8 @@
 
 
 .section_left {
-  border: 1px solid red;
-  /* background-color: #0f5319; */
+  /* border: 1px solid red;
+  background-color: #0f5319; */
   position: relative;
   width: 30%; 
 }
@@ -87,32 +103,6 @@
   top: 7em;
   left: 10em;
 }
-
-.btn_reset {
-  position: absolute;
-  bottom: 0;
-  left: 15%;
-  background-color: #ffb067;
-  width: 200px;
-  height: 60px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.btn_reset:active {
-  background-color: grey;
-  box-shadow: 2px 2px 5px #2b1103;
-  cursor: pointer;
-}
-
-.btn_reset:hover {
-  background-color: grey;
-  cursor: pointer;
-  color: white;
-} 
-
 
 .section_right {
   position: relative;
@@ -297,13 +287,11 @@
 .food9_position {
   top: 28em;
   left: 10em;
-  border: 2px solid #ff7077;
 }
 
 .food10_position {
   top: 28em;
   left: 22.5em;
-  border: 2px solid #ff7077;
 }
 
 .div_img {

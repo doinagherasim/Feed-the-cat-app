@@ -97,22 +97,27 @@ function FeedTheCat() {
     {id:9, foodInTheBag: classes.food9_inTheBag, src: food1, foodPosition: classes.food9_position,  foodNr: classes.foodNr9}, {id:10, foodInTheBag: classes.food10_inTheBag, src: food1, foodPosition: classes.food10_position,foodNr: classes.foodNr10}];
 
     return <div>
-        <img className={classes.bground} src={bground} width="150" height="113" alt="bground"></img>
         <div className={classes.container}>
+        {/* <img className={classes.bground} src={bground} alt="bground"></img> */}
         <div>
         {alertFood && <AlertModal closeAlert={closeAlert} />}
         </div>
+
+
         <div className={classes.header}>
-        <button className={`${classes.btn_home}`} onClick={home}>⏪  Home </button>
+        <button className={`${classes.btn_header}`} onClick={home}>⏪  Home </button>
+        <button className={classes.btn_header} onClick={resetHandler}>Reset</button>
             <h1 className={classes.hello}>Hello {params.name}...</h1>
             <p className={classes.text}>Would you feed the cat?</p>
             <p className={classes.text}>Here's how much I ate today: {totalFoodCount} / 8</p>
         </div>
 
+
         <div className={classes.wrap}>
             <div className={classes.section_cat}>
             <img className={classes.cat} src={cat} width="150" height="113" alt="cat"></img>
             </div>
+
             <div className={classes.section_left}>
                   <div className={classes.bag_container}>
                       <img className={classes.bag} src={bag} width="150" height="113" alt="bag"></img>
@@ -123,7 +128,6 @@ function FeedTheCat() {
                    }
                    </div>
                 </div>
-            <button className={classes.btn_reset} onClick={resetHandler}>Reset</button>
                 </div>
 
         <div className={classes.section_right}>
@@ -146,7 +150,7 @@ function FeedTheCat() {
                  )} </div>
                  </div>
             </div>
-                </div>
+            </div>
         </div >;
         </div>;
 };
