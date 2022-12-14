@@ -5,7 +5,7 @@ import classes from "./alertModal.module.css";
 function AlertModal(props) {
     let params = useParams();
     return (
-    <div>
+    <div className={classes.container}>
         <div className={`${classes.alert} `}>
                 <p className={classes.text}>Omg {params.name}! This is extra food🙀!</p>
                 <button className={classes.ok} onClick={props.closeAlert}>OK</button>

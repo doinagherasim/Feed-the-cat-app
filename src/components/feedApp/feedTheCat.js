@@ -97,61 +97,53 @@ function FeedTheCat() {
     {id:9, foodInTheBag: classes.food9_inTheBag, src: food1, foodPosition: classes.food9_position,  foodNr: classes.foodNr9}, {id:10, foodInTheBag: classes.food10_inTheBag, src: food1, foodPosition: classes.food10_position,foodNr: classes.foodNr10}];
 
     return <div>
-        <div className={classes.container}>
-        {/* <img className={classes.bground} src={bground} alt="bground"></img> */}
         <div>
         {alertFood && <AlertModal closeAlert={closeAlert} />}
+        </div>  
+    <div className={classes.container}>
+    <div className={classes.header}>
+                <h1 className={classes.hello}>Hello {params.name}</h1>
+                <p className={classes.text}>Would you feed the cat?</p>
+                <p className={classes.text}>Here's how much I ate today: {totalFoodCount} / 8</p>
+    </div>
+    <div className={classes.wrap}>
+        <div className={classes.bag_cat_responsive}>
+        <div className={classes.section_cat}>
+                <img className={classes.cat} src={cat} width="150" height="113" alt="cat"></img>
         </div>
-
-
-        <div className={classes.header}>
-        <button className={`${classes.btn_header}`} onClick={home}>⏪  Home </button>
-        <button className={classes.btn_header} onClick={resetHandler}>Reset</button>
-            <h1 className={classes.hello}>Hello {params.name}...</h1>
-            <p className={classes.text}>Would you feed the cat?</p>
-            <p className={classes.text}>Here's how much I ate today: {totalFoodCount} / 8</p>
-        </div>
-
-
-        <div className={classes.wrap}>
-            <div className={classes.section_cat}>
-            <img className={classes.cat} src={cat} width="150" height="113" alt="cat"></img>
-            </div>
-
-            <div className={classes.section_left}>
-                  <div className={classes.bag_container}>
-                      <img className={classes.bag} src={bag} width="150" height="113" alt="bag"></img>
-                      <img className={classes.cat_bag} src={cat_bag} width="150" height="113" alt="cat_bag"></img>
-                   <div> {
+            <div className={classes.bag_container}>
+                    <img className={classes.bag} src={bag} width="150" height="113" alt="bag"></img>
+                    <img className={classes.cat_bag} src={cat_bag} width="150" height="113" alt="cat_bag"></img>
+                {
                     imageGallery.map((element, index)=><img className={`${classes.inTheBag} ${element.foodInTheBag} ${foods[index].theCatAte ? "" : classes.hidden}`} 
                     src={element.src} alt="image"></img>)
-                   }
-                   </div>
-                </div>
-                </div>
-
-        <div className={classes.section_right}>
-            <div className={classes.shelf_container}>
-            <img className={classes.cat_above} src={cat_above} alt="cat_above"></img>
-                <img className={classes.shelf} src={shelf2} alt="shelf"></img>
-                <p className= {classes.extra_text}>Extra food!</p>
-                <img className={classes.extra} src={extra} alt="extra"></img>
-                <img className={classes.extra_cats} width="150" height="113" src={extra_cats} alt="extra_cats"></img>
-                    {
-                     imageGallery.map((element, index)=> 
-                    <button className={classes.btn} onClick={() => onClickFood(index)}>
-                        <img className={`${classes.box} ${element.foodPosition}`} src={element.src} width="150" height="113" alt="image"></img>
-                        <img className={`${classes.done} ${element.foodPosition} ${foods[index].theCatAte ? "" : classes.hidden} `} src={done} width="150" height="113" alt="done"></img>
-                    </button>)
                     }
-                <div> {
-                    imageGallery.map((element)=>
-                    <p className={`${classes.foodNumber} ${element.foodNr}`}>{element.id}</p>
-                 )} </div>
-                 </div>
             </div>
+        </div>
+            <div className={classes.shelf_container}>
+                    <img className={classes.cat_above} src={cat_above} alt="cat_above"></img>
+                    <img className={classes.shelf} src={shelf2} alt="shelf"></img>
+                    {
+                        imageGallery.map((element, index)=> 
+                           <button className={classes.btn} onClick={() => onClickFood(index)}>
+                           <img className={`${classes.box} ${element.foodPosition}`} src={element.src} alt="image"></img>
+                           <img className={`${classes.done} ${element.foodPosition} ${foods[index].theCatAte ? "" : classes.hidden} `} src={done} width="55" height="55" alt="done"></img>
+                           </button>
+                    )}
+                    {
+                        imageGallery.map((element)=>
+                           <p className={`${classes.foodNumber} ${element.foodNr}`}>{element.id}</p>
+                    )}
+                    <p className= {classes.extra_text}>Extra food!</p>
+                    <img className={classes.extra} src={extra} alt="extra"></img>
+                    <img className={classes.extra_cats} width="100" height="100" src={extra_cats} alt="extra_cats"></img>
             </div>
-        </div >;
-        </div>;
+        </div> 
+        <div className={classes.btn_bottom}>
+                <button className={`${classes.btn_header} ${classes.btn_left}`} onClick={home}>Home</button>
+                <button className={`${classes.btn_header} ${classes.btn_right}`} onClick={resetHandler}>Reset</button>
+            </div>
+    </div>
+</div>;
 };
 export default FeedTheCat;

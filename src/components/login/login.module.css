@@ -1,16 +1,9 @@
-.div_wrapper {
-  width: 70%;
-  height: 30em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-}
 
 .yam {
   font-size: 3em;
   font-family: cooperplate;
   text-align: center;
-  align-items: center;
+  color: #2b1103;
 }
 
 .img1 {
@@ -27,39 +20,51 @@
   text-align: center;
   margin-top: -1rem;
   align-items: center;
+  color:#2b1103;
 }
 
-.btn_wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  width: 40%;
+.btn_wrapper {
+  width: 20em;
   height: 5em;
-  justify-content: center;
-  margin: 11% auto;
-  padding: 0.5em;
+  margin: 0 auto;
+  margin-top: 10em;
 }
 
 .btn {
-  display: block;
-  margin: 0.3em;
-  padding: 0.5em;
+  color: black;
+  width: 150px;
+  height: 45px;
+  margin-top: 10px;
+  font-weight: bold;
   background-color: #ffb067;
-  width: 10em;
-  height: 3.3em;
-  font-size: 1.1em;
-  text-align: center;
-  border-radius: 0.7em;
-  cursor: pointer;
+  border-radius: 25px;
+  opacity: 80%;
+  border: 1px solid #2b1103;
+  font-size: 18px;
 }
 .btn:active {
-  background-color: grey;
+  background-color: #2b1103;
   color: white;
   box-shadow: 2px 2px 5px #2b1103;
   cursor: pointer;
 }
 .btn:hover {
-  background-color: grey;
-  color: white;
+  background-color: #2b1103;
   cursor: pointer;
+  color: white;
+}
+.btn_left{
+  float: left;
 }
 
+.btn_right{
+  float: right;
+}
+@media (max-width:1020px) {
+  .btn_wrapper {
+    margin-top: 240px;
+  }
+  .yam{
+    margin-top: 80px;
+  }
+}
