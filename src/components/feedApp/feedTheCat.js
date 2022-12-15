@@ -104,7 +104,7 @@ function FeedTheCat() {
     <div className={classes.header}>
                 <h1 className={classes.hello}>Hello {params.name}</h1>
                 <p className={classes.text}>Would you feed the cat?</p>
-                <p className={classes.text}>Here's how much I ate today: {totalFoodCount} / 8</p>
+                <p className={classes.text}>Here's how much I ate today: <span>{totalFoodCount} / 8</span></p>
     </div>
     <div className={classes.wrap}>
         <div className={classes.bag_cat_responsive}>
@@ -142,7 +142,7 @@ function FeedTheCat() {
         <div className={classes.btn_bottom}>
                 <button className={`${classes.btn_header} ${classes.btn_left}`} onClick={home}>Home</button>
                 <button className={`${classes.btn_header} ${classes.btn_right}`} onClick={resetHandler}>Reset</button>
-            </div>
+        </div>
     </div>
 </div>;
 };
