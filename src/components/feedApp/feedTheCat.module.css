@@ -64,7 +64,7 @@ span {
 
 .text {
   color:  #2b1103;
-  font-size: 1.25rem;
+  font-size: 20px;
   margin-bottom: 0px;
   margin-top: 0px;
   text-align: center;
@@ -420,5 +420,11 @@ span {
 .shelf_container {
   position: relative;
   right: 2px;
+}
+.hello{
+  font-size: 33px;
+}
+.text{
+  font-size: 16px;
 }
 }
