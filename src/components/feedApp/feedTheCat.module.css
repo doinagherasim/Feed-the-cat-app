@@ -78,7 +78,6 @@ span {
   font-weight: bold;
   background-color: #67b6ff;
   border-radius: 25px;
-  opacity: 80%;
   border: 1px solid #2b1103;
   font-size: 18px;
 }
@@ -108,7 +107,6 @@ span {
   margin-left: 45px;
   width: 10em;
   height: 16.25em;
-  opacity: 80%;
 }
 
 .bag {
